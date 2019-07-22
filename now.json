@@ -1,9 +1,12 @@
 {
     "version": 2,
     "builds":[
-        { "src": "index.js", "use": "@now/node" }       
+        { "src": "index.js", "use": "@now/node" },
+        { "src": "public/**", "use": "@now/static" },
+        { "src": "*.js", "use": "@now/node" }
     ],
     "routes":[
-        { "src": "/.*", "dest": "index.js" }              
+        { "src": "/.*", "dest": "index.js" },
+        { "src": "/public/lib/script.js", "methods": ["POST", "GET"], "dest": "/public/lib/script.js"}        
     ] 
-}
+} 
